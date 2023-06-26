@@ -1,4 +1,7 @@
-from django.urls import path
+from rest_framework.routers import DefaultRouter
 from . import views
 
-urlpatterns = [path('project', views.giveProjectName)]
+router = DefaultRouter()
+router.register('aggregations', views.AggregationViewSet)
+
+urlpatterns = router.urls

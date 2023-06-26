@@ -1,7 +1,11 @@
-from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.viewsets import ModelViewSet
+from .models import Aggregation
+from .serializers import AggregationSerializer
 
 
-@api_view()
-def giveProjectName(request):
-    return Response('AOS backend')
+class AggregationViewSet(ModelViewSet):
+    http_method_names = ['get']
+
+    queryset = Aggregation.objects.select_related(
+        'equipment').select_related('aggregation_type').all()
+    serializer_class = AggregationSerializer
