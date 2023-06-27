@@ -2,8 +2,8 @@ from django.db.models import Prefetch
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
-from .models import Aggregation, Equipment
-from .serializers import AggregationSerializer, EquipmentSerializer
+from .models import Aggreagation_Type, Aggregation, Equipment
+from .serializers import AggregationSerializer, AggregationTypeSerializer, EquipmentSerializer
 
 
 class AggregationViewSet(ModelViewSet):
@@ -39,3 +39,10 @@ class EquipmentViewSet(ModelViewSet):
             return equipment.all()
 
         return equipment.filter(name__in=names)
+
+
+class AggregationTypeViewSet(ModelViewSet):
+    http_method_names = ['get', 'options', 'head']
+
+    queryset = Aggreagation_Type.objects.all()
+    serializer_class = AggregationTypeSerializer

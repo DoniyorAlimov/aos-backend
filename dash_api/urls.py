@@ -3,6 +3,7 @@ from . import views
 
 router = DefaultRouter()
 router.register('aggregations', views.AggregationViewSet)
+router.register('aggregation-types', views.AggregationTypeViewSet)
 router.register('equipments', views.EquipmentViewSet, basename='equipments')
 
 urlpatterns = router.urls
