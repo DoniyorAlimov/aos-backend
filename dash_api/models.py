@@ -25,7 +25,8 @@ class Aggreagation_Type(models.Model):
 
 
 class Aggregation(models.Model):
-    equipment = models.ForeignKey(Equipment, on_delete=models.CASCADE)
+    equipment = models.ForeignKey(
+        Equipment, on_delete=models.CASCADE, related_name='aggregations')
     aggregation_type = models.ForeignKey(
         Aggreagation_Type, on_delete=models.PROTECT)
     value = models.DecimalField(max_digits=10, decimal_places=6)
