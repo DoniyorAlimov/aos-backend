@@ -93,7 +93,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'mssql',
         'NAME': 'AOS',
-        'HOST': '10.0.1.91',
+        'HOST': 'localhost',
         'USER': 'webadmin',
         'PASSWORD': 'Honeywell2023',
         'OPTIONS': {

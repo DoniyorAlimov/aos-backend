@@ -38,3 +38,9 @@ class EquipmentSerializer(serializers.ModelSerializer):
         fields = ['id', 'name', 'aggregations']
 
     aggregations = SimpleAggregationSerializer(many=True)
+
+
+class SimpleEquipmentSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Equipment
+        fields = ['id', 'name']

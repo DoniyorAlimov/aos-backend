@@ -3,7 +3,7 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.filters import OrderingFilter
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import Aggreagation_Type, Aggregation, Equipment
-from .serializers import AggregationSerializer, AggregationTypeSerializer, EquipmentSerializer
+from .serializers import AggregationSerializer, AggregationTypeSerializer, EquipmentSerializer, SimpleEquipmentSerializer
 
 
 class AggregationViewSet(ModelViewSet):
@@ -46,3 +46,10 @@ class AggregationTypeViewSet(ModelViewSet):
 
     queryset = Aggreagation_Type.objects.all()
     serializer_class = AggregationTypeSerializer
+
+
+class SimpleEquipmentViewSet(ModelViewSet):
+    http_method_names = ['get', 'options', 'head']
+
+    queryset = Equipment.objects.all()
+    serializer_class = SimpleEquipmentSerializer
